@@ -1,18 +1,41 @@
-@import url("https://fonts.googleapis.com/css?family=Lato|Raleway|Rouge+Script");
-.has-vertically-aligned-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+/* Modern Wedding Invitation Styles */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Raleway:wght@400;600;900&family=Rouge+Script&display=swap");
+
+/* CSS Custom Properties */
+:root {
+  --color-primary: #996E6D;
+  --color-primary-light: #BC8887;
+  --color-primary-lighter: #D8A9A8;
+  --color-primary-lightest: #EDD2D1;
+  --color-background: #F4E2E2;
+  --color-text: #000;
+  --color-white: #fff;
+  --font-primary: 'Raleway', Tahoma, sans-serif;
+  --font-script: 'Rouge Script', cursive;
+  --font-body: 'Lato', sans-serif;
+  --transition-base: 0.2s ease-in-out;
+  --shadow-sm: 0 2px 15px rgba(0, 0, 0, 0.082);
+  --shadow-md: 0 5px 20px rgba(14, 25, 80, 0.3);
+  --shadow-lg: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 html {
-  font-family: 'Raleway', Tahoma, sans-serif;
+  font-family: var(--font-primary);
   width: 100%;
   min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+.has-vertically-aligned-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .header-wrapper {
@@ -64,10 +87,9 @@ html {
   font-size: 1.3rem;
 }
 
-.hero .tempatwaktu {
+.hero .venue-date {
   padding-top: 35px;
   font-size: 1.3rem;
-  
 }
 
 .hero .hero-foot {
@@ -116,12 +138,17 @@ html {
 }
 
 
-.space40px{
+/* Spacing Utilities */
+.space-40 {
   height: 40px;
 }
 
-.space24px{
+.space-24 {
   height: 24px;
+}
+
+.spacer {
+  height: 20px;
 }
 
 .main-content {
@@ -180,19 +207,18 @@ html {
 }
 
 @media (max-width: 599px) {
-  .main-content .section-dark.foto-foto {
+  .main-content .section-dark.photos {
     padding: 75px 20px;
   }
 }
 
-.main-content .section-dark.foto-foto .foto-item {
+.main-content .section-dark.photos .photo-item {
   margin-bottom: 1rem;
-  -webkit-transition: all .1s ease-in-out;
-  transition: all .1s ease-in-out;
+  transition: all var(--transition-base);
   border-radius: 5px;
   background-size: cover;
   background-repeat: no-repeat;
-  box-shadow: 0 5px 20px rgba(14, 25, 80, 0.3);
+  box-shadow: var(--shadow-md);
 }
 
 .main-content .section-dark.my-work .work-item:hover {
@@ -271,18 +297,18 @@ html {
   }
 }
 
-.main-content .section-color.pertanyaan {
+.main-content .section-color.questions {
   padding: 100px;
-  background-color: #996E6D;
-  color: white;
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
-.main-content .section-color.pertanyaan .title,
-.main-content .section-color.pertanyaan .subtitle {
-  color: white;
+.main-content .section-color.questions .title,
+.main-content .section-color.questions .subtitle {
+  color: var(--color-white);
 }
 
-.main-content .section-color.pertanyaan i {
+.main-content .section-color.questions i {
   font-size: 3rem;
   padding: 20px;
 }
@@ -297,44 +323,47 @@ html {
   padding-bottom: 60px;
 }
 
-.nama-lengkap {
-  font-family: 'Rouge Script', sans-serif;
-  color: #996E6D;
-  font-size: 3.5rem;
-  letter-spacing: 0px;
+/* Full Name Styling */
+.full-name {
+  font-family: var(--font-script);
+  color: var(--color-primary);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  letter-spacing: 0;
   padding-bottom: 6px;
-  line-height: 3.7rem;
+  line-height: 1.1;
 }
 
 .ampersand {
-font-size: 5rem;
-font-family: 'Rouge Script', sans-serif;
-color: #996E6D;
-line-height: 5rem;
-display: inline-block;
-vertical-align: middle;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-family: var(--font-script);
+  color: var(--color-primary);
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 .bodytext {
-  font-size: 18px;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.6;
 }
 
-.waktu {
+/* Schedule/Time Styling */
+.schedule {
   font-size: 1.4rem;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--font-primary);
 }
 
-.tanggal-angka {
-  font-size: 5rem;
-  font-family: 'Raleway', sans-serif;
+.date-number {
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-family: var(--font-primary);
   font-weight: 900;
   line-height: 1;
 }
 
-.tempat {
+/* Venue Styling */
+.venue {
   font-size: 1.4rem;
-  font-family: 'Raleway', sans-serif;
-  font-size: ;
+  font-family: var(--font-primary);
   margin-bottom: 50px;
 }
 
@@ -549,90 +578,100 @@ body.preloader-site {
 .fa-copy {
   margin-right: 5px;
 }
-.white
-{color:ghostwhite}
+/* Color Utility Classes */
+.white {
+  color: ghostwhite;
+}
 
+.dusty-pink {
+  color: var(--color-primary-lighter);
+}
 
-.dusty-pink {color: #D8A9A8}
-.dusty-pink-lighter {color: #EDD2D1}
-.dusty-pink-lightest {color: #F4E2E2}
-.dusty-pink-darker {color: #BC8887}
-.dusty-pink-darkest {color: #996E6D}
+.dusty-pink-lighter {
+  color: var(--color-primary-lightest);
+}
+
+.dusty-pink-lightest {
+  color: var(--color-background);
+}
+
+.dusty-pink-darker {
+  color: var(--color-primary-light);
+}
+
+.dusty-pink-darkest {
+  color: var(--color-primary);
+}
 
 .tile {
   border-radius: 10px;
 }
 
 
-.foto1 {
+/* Photo Gallery Styles */
+.photo-1 {
   background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/beatriz-perez-moya-M2T1j-6Fn8w-unsplash.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   min-height: 24rem;
 }
 
-
-.foto2 {
+.photo-2 {
   background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/evelina-friman-hw_sKmjb0ns-unsplash.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   min-height: 24rem;
 }
 
-.foto3 {
+.photo-3 {
   background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/jeremy-wong-weddings-464ps_nOflw-unsplash.jpg");
   background-size: cover;
   background-position: top;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   min-height: 24rem;
 }
 
-.foto4 {
+.photo-4 {
   background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/jeremy-wong-weddings-K8KiCHh4WU4-unsplash.jpg");
   background-size: cover;
   background-position: top;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   min-height: 24rem;
 }
 
-.foto5 {
+.photo-5 {
   background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/nathan-dumlao-5BB_atDT4oA-unsplash.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   min-height: 24rem;
 }
 
-
-.foto6 {
+.photo-6 {
   background-image: linear-gradient(rgba(95, 2, 2, 0.5), rgba(48, 47, 47, 0.9)), url("../image/samantha-gades-x40Q9jrEVT0-unsplash.jpg");
   background-size: cover;
   background-position: center;
-  background-repeat:no-repeat;
+  background-repeat: no-repeat;
   min-height: 24rem;
 }
 
-
-
-.title-foto {
-  font-size: 18pt;
-  font-family: 'Lato', sans-serif;
+.photo-title {
+  font-size: 1.125rem;
+  font-family: var(--font-body);
   font-weight: 700;
   text-align: left;
-  color: white;
+  color: var(--color-white);
 }
 
-
-.subtitle-foto {
-  font-family: 'Lato', sans-serif;
-  font-weight: 700;
-  font-size: 14pt;
+.photo-subtitle {
+  font-family: var(--font-body);
   font-weight: 600;
+  font-size: 0.875rem;
   margin-top: 15px;
   text-align: left;
-  color: white;
+  color: var(--color-white);
 }
 
 .section-light {
